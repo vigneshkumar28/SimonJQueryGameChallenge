@@ -1,0 +1,21 @@
+// alert("hello");
+
+var buttonColours = ["red", "blue", "green", "yellow"];
+var gamePattern = [];
+function nextSequence(){
+    var randomNumber = Math.floor(Math.random()*4); //0,1,2,3
+    var randomChosenColour = buttonColours[randomNumber];
+    gamePattern.push(randomChosenColour);
+
+    $("#"+randomChosenColour).fadeIn(100).fadeOut(100).fadeIn(100);
+    // $('document').on('load', function(){
+        // new Audio('sounds/blue.mp3').play();
+        // audio.play(); +randomChosenColour+'.mp3'
+    // });
+    var audio = new Audio("sounds/"+randomChosenColour+".mp3");
+    audio.play();
+}
+
+$(document).keypress(function(){
+    nextSequence();
+})
